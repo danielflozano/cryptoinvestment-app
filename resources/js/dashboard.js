@@ -24,11 +24,11 @@ const fetchData = async (selectCrypto) => {
             const volume = crypto.quote.USD.volume_24h;
 
             table.innerHTML += `
-        <tr class="border-b">
-            <td class="p-2">${symbol}</td>
-            <td class="p-2">$${price.toFixed(2)}</td>
-            <td class="p-2">${change.toFixed(2)}%</td>
-            <td class="p-2">$${volume.toFixed(0)}</td>
+        <tr class="group hover:bg-blue-50/50 transition-all duration-200">
+            <td class="px-6 py-4 text-sm font-bold text-slate-700 ">${symbol}</td>
+            <td class="px-6 py-4 text-sm font-bold text-slate-700">$${price.toFixed(2)}</td>
+            <td class="px-6 py-4 text-sm font-bold text-slate-700">${change.toFixed(2)}%</td>
+            <td class="px-6 py-4 text-sm font-bold text-slate-700">$${volume.toFixed(0)}</td>
         </tr>
         `;
 
@@ -49,7 +49,7 @@ const fetchCryptos = async () => {
 
         const select = document.getElementById("selectCrypto");
         select.innerHTML =
-            '<option value="" disabled>Seleccionar Moneda</option>';
+            '<option value="">Seleccionar Moneda</option>';
         dataCryptos.data.forEach((crypto) => {
             const option = document.createElement("option");
             option.value = crypto.symbol; // Guardamos el símbolo (BTC)
@@ -101,4 +101,4 @@ function drawChart(labels, prices) {
 loadData();
 watchSelect();
 
-setInterval(loadData, 1000000000);
+setInterval(loadData, 30000);
