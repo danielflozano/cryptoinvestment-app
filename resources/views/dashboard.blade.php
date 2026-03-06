@@ -10,6 +10,10 @@
 
      <h1 class="text-2xl">CryptoInvestment Dashboard</h1>
 
+     <select id="selectCrypto">
+        <option value="" disabled>Seleccionar Moneda</option>
+     </select>
+
      <table class="border">
          <thead>
 
